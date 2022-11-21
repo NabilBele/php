@@ -6,9 +6,8 @@ $dbname = "curso2";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "select * from facturas";
+$sql = "select * from phones";
 $resultado = $conn->query($sql);
-
 ?>
 
 <html>
@@ -22,24 +21,14 @@ $resultado = $conn->query($sql);
         <?php while ($fila = $resultado->fetch_assoc()) { ?>
 
         <tr>
-            <td><?= $fila["numeros"] ?></td>
-            <td><?= $fila["concepto"] ?></td>
-            <td><?= $fila["importe"] ?></td>
-            <td><a href="delete.php?numeros=<?= $fila["numeros"] ?>">Delete</a></td>
-
+            <td><?= $fila["company"] ?></td>
+            <td><?= $fila["price"] ?></td>
+            <td><?= $fila["model"] ?></td>
+            <td><a href="delete.php?model=<?= $fila["model"] ?>">Delete</a></td>
         </tr>
+
 
         <?php } ?>
-        <?php
-        $sql2 = "select sum(importe) as suma from facturas";
-        $resultado2 = $conn->query($sql2);
-        $filaResultado2 = $resultado2->fetch_assoc(); ?>
-        <tr>
-            <td colspan="2">total: </td>
-            <td><?= $filaResultado2["suma"] ?></td>
-            <td>Euros</td>
-        </tr>
-
 
     </table>
     <div class="btnDiv"> <a class="add" href="formolarioFactura.html">nuevo</a>
