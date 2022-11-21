@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>html with php</title>
+    <script type="text/javascript">
+      function enviar() {
+        var formulario = document.getElementById("formulario");
+        if (formulario.reportValidity()) {
+          alert("todo ok");
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form id="formulario" action="insertar.php" onsubmit="enviar()">
+      <p>
+        numero
+        <input
+          type="text"
+          name="numero"
+          required
+          pattern="\d{2}"
+          placeholder="introduce numero"
+        />
+      </p>
+      <p>
+        concepto
+        <input
+          type="text"
+          name="concepto"
+          required
+          pattern="[a-zA-Z]{3,10}"
+          placeholder="introduce concepto"
+        />
+      </p>
+      <p>
+        importe
+        <input
+          type="text"
+          name="importe"
+          required
+          pattern="\d{1,4}"
+          placeholder="introduce importe"
+        />
+      </p>
+      <input type="submit" value="aceptar" />
+    </form>
+  </body>
+</html>
