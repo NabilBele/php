@@ -17,17 +17,11 @@ $dbname = "curso2";
 </head>
 
 <body>
-    <?php
-    $num = $_GET["numero"];
-    $con = $_GET["concepto"];
-    $imp = $_GET["importe"];
-    ?>factura numero <?php echo $num ?> <br>
-    concepto es <?php echo $con ?><br>
-    importe es <?php echo $imp ?><br>
+
     <?phP
 
     //$sql="insert into facturas values (1,'ordenador',200);"
-    $sql = "delete from facturas where numeros=$num;";
+    $sql = "delete from facturas where numeros =" . $_GET["numeros"];
     echo $sql;
     ?>
     <?php

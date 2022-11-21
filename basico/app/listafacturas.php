@@ -12,6 +12,10 @@ $resultado = $conn->query($sql);
 
 <html>
 
+<head>
+    <link rel="stylesheet" href="styles/tableFactura.css">
+</head>
+
 <body>
     <table border="1px solid black">
         <?php while ($fila = $resultado->fetch_assoc()) { ?>
@@ -20,16 +24,17 @@ $resultado = $conn->query($sql);
             <td><?= $fila["numeros"] ?></td>
             <td><?= $fila["concepto"] ?></td>
             <td><?= $fila["importe"] ?></td>
-            <td><?= $fila["empresa"] ?></td>
+            <td><a href="delete.php?numeros=<?= $fila["numeros"] ?>">Delete</a></td>
         </tr>
-        <tr>
 
-            <?php } ?>
+
+        <?php } ?>
 
     </table>
     <a href="formolarioFactura.html">nuevo</a>
-    <a href="deleteFactura.html">delete</a>
     <a href="updateFactura.html">Update</a>
+
+
 </body>
 
 </html>

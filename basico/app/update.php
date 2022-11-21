@@ -17,14 +17,7 @@ $dbname = "curso2";
 </head>
 
 <body>
-    <?php
-    $num = $_GET["numero"];
-    $con = $_GET["concepto"];
-    $imp = $_GET["importe"];
-    ?>factura numero <?php echo $num ?> <br>
-    concepto es <?php echo $con ?><br>
-    importe es <?php echo $imp ?><br>
-    <?phP
+
 
     //$sql="Update"
     $sql = "update facturas set concepto = '$con' where numeros = $num;";
