@@ -32,7 +32,10 @@ $resultado = $conn->query($sql);
         <tr>
             <form action="">
                 <th colspan="3" style="background-color: aliceblue;">
-                    Concepto <input type="text" name="concepto">
+                    Concepto:<?php if (!empty($_GET["concepto"])) { ?>
+                    <input type="text" value="<?= $_Get["concepto"] ?>" name="concepto">
+                    <?php } else { ?>
+                    <input type="text" name="concepto"><?php } ?>
                 </th>
                 <th style="background-color: aliceblue;"><input type="submit" value="fitrar"></th>
             </form>
@@ -58,6 +61,10 @@ $resultado = $conn->query($sql);
         <?php } ?>
         <?php
         $sql2 = "select sum(importe) as suma from facturas";
+        if (!empty($_GET["concepto"])) {
+            echo $_GET["concepto"];
+            $sql2 = $sql2 . " where concepto='" . $_GET["concepto"] . "' ";
+        }
         $resultado2 = $conn->query($sql2);
         $filaResultado2 = $resultado2->fetch_assoc(); ?>
         <tr>
