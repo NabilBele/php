@@ -5,8 +5,18 @@ $password = "";
 $dbname = "curso2";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 $sql = "select * from facturas";
+////////////filter
+if (!empty($_GET["concepto"])) {
+    echo $_GET["concepto"];
+    $sql = $sql . " where concepto='" . $_GET["concepto"] . "' ";
+}
+////////////orden
+if (!empty($_GET["orden"])) {
+    echo $_GET["orden"];
+    $sql = $sql . " order by " . $_GET["orden"];
+}
+echo "sql del listado :<b>" . $sql . "</b>";
 $resultado = $conn->query($sql);
 
 ?>
@@ -19,6 +29,22 @@ $resultado = $conn->query($sql);
 
 <body>
     <table border="1px solid black">
+        <tr>
+            <form action="">
+                <th colspan="3" style="background-color: aliceblue;">
+                    Concepto <input type="text" name="concepto">
+                </th>
+                <th style="background-color: aliceblue;"><input type="submit" value="fitrar"></th>
+            </form>
+
+        </tr>
+        <tr>
+            <th style="background-color: aliceblue;"><a href="?orden=numeros">Numero</a></th>
+            <th style="background-color: aliceblue;"><a href="?orden=concepto">Concepto</a> </th>
+            <th style="background-color: aliceblue;"><a href="?orden=importe">Importe</a> </th>
+        </tr>
+
+
         <?php while ($fila = $resultado->fetch_assoc()) { ?>
 
         <tr>

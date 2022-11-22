@@ -27,7 +27,7 @@ $dbname = "curso2";
     <?phP
 
     //$sql="Update"
-    $sql = "update facturas set concepto = '$con'  where numeros = $num;";
+    $sql = "update facturas set concepto = '$con',importe = '$imp'  where numeros = $num;";
     echo $sql;
     ?>
     <?php
