@@ -14,25 +14,34 @@
     ></script>
     <style>
       .miestilo {
-        background-color: brown;
+        background-color: rgb(165, 42, 138);
         text-align: center;
         border: 1px solid black;
+        padding: 10px;
+        box-shadow: inset 0px 0px 10px black;
+      }
+      .miestilo2 {
+        background-color: rgb(42, 165, 93);
+        text-align: center;
+        border: 1px solid black;
+        box-shadow: inset 0px 0px 10px black;
+        padding: 10px;
       }
     </style>
-    <title>002</title>
+    <title>003</title>
   </head>
   <body>
     Hola bootstrap
+    <p>xs = exrta small menos de 768px,</p>
+    <p>sm = small mas de 768px menos de 992px</p>
+    <p>md=medium mas de 992px</p>
+    <p>lg=larg mas de 1200px</p>
     <div class="container">
       <div class="row">
-        <div class="col-8 miestilo">1</div>
-        <div class="col-2 miestilo">2</div>
-        <div class="col-2 miestilo">3</div>
-      </div>
-      <div class="row">
-        <div class="col-2 miestilo">4</div>
-        <div class="col-8 miestilo">5</div>
-        <div class="col-2 miestilo">6</div>
+        <div class="col-lg-6 col-md-8 col-sm-11 miestilo">
+          esto es grande grande
+        </div>
+        <div class="col-lg-6 col-md-4 col-sm-1 miestilo">esto no tanto</div>
       </div>
     </div>
   </body>
